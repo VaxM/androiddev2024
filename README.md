@@ -10,7 +10,7 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: *YourNameHere*
-* ID: *YourIdHere*
+* Name: Trinh Thanh Vinh
+* ID: 22BI13474
 * Group ID: *Your Group ID here*
 * Project Name: *Your Project Name here*
