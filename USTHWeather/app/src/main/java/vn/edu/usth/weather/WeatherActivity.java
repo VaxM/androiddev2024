@@ -8,6 +8,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import android.util.Log;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -21,6 +23,13 @@ public class WeatherActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Create a new instance of ForecastFragment
+        ForecastFragment forecastFragment = new ForecastFragment();
+
+        // Add the fragment to the 'container' FrameLayout
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, forecastFragment)
+                .commit();
     }
 
     @Override
@@ -54,4 +63,5 @@ public class WeatherActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i("destroy", "On destroy");
     }
+
 }
