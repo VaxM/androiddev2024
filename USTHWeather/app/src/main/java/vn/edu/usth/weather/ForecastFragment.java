@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 /**
@@ -65,11 +68,25 @@ public class ForecastFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate an empty layout or use a simple View
-        View view = new View(getActivity());
-        // Set the background color (you can change this as per your requirement)
-        view.setBackgroundColor(Color.parseColor("#20FF0000")); // Red with transparency
-        return view;
-    }
+        // Create a new LinearLayout
+        LinearLayout layout = new LinearLayout(getActivity());
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setBackgroundColor(Color.parseColor("#20FF0000")); // Set the background color (optional)
 
+        // Create a new TextView
+        TextView textView = new TextView(getActivity());
+        textView.setText("Thursday");
+        textView.setTextSize(24);
+        textView.setTextColor(Color.BLACK);
+
+        // Create a new ImageView
+        ImageView imageView = new ImageView(getActivity());
+        imageView.setImageResource(R.drawable.weather_news); // Replace with your actual drawable resource name
+
+        // Add the TextView and ImageView to the LinearLayout
+        layout.addView(textView);
+        layout.addView(imageView);
+
+        return layout;
+    }
 }
