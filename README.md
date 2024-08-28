@@ -12,5 +12,5 @@ Student Info
 
 * Name: Trinh Thanh Vinh
 * ID: 22BI13474
-* Group ID: *Your Group ID here*
+* Group ID: 22
 * Project Name: *Your Project Name here*
