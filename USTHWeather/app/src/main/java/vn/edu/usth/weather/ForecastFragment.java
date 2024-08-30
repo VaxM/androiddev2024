@@ -61,38 +61,41 @@ public class ForecastFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.fragment_forecast,container, false);
+
         // Create the main LinearLayout
-        LinearLayout layout = new LinearLayout(getContext());
-        layout.setOrientation(LinearLayout.VERTICAL);
+        //LinearLayout layout = new LinearLayout(getContext());
+        //layout.setOrientation(LinearLayout.VERTICAL);
 
         // Create and configure the TextView
-        TextView day = new TextView(getContext());
-        day.setText("Thursday");
-        day.setTextSize(24); // Optional: Set text size
-        day.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
+        //TextView day = new TextView(getContext());
+        //day.setText("Thursday");
+        //day.setTextSize(24); // Optional: Set text size
+        //day.setLayoutParams(new LinearLayout.LayoutParams(
+        //        LinearLayout.LayoutParams.WRAP_CONTENT,
+        //         LinearLayout.LayoutParams.WRAP_CONTENT));
 
         // Create and configure the ImageView
-        ImageView img = new ImageView(getContext());
-        img.setImageResource(R.drawable.sun);
-        img.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
+        //ImageView img = new ImageView(getContext());
+        //img.setImageResource(R.drawable.sun);
+        //img.setLayoutParams(new LinearLayout.LayoutParams(
+        //        LinearLayout.LayoutParams.WRAP_CONTENT,
+        //        LinearLayout.LayoutParams.WRAP_CONTENT));
 
         // Create a colored view (if needed)
-        View coloredView = new View(getContext());
-        coloredView.setBackgroundColor(Color.parseColor("#20FF0000"));
-        coloredView.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                10)); // Height of the colored view
+        //View coloredView = new View(getContext());
+        //coloredView.setBackgroundColor(Color.parseColor("#20FF0000"));
+        //coloredView.setLayoutParams(new LinearLayout.LayoutParams(
+        //        LinearLayout.LayoutParams.MATCH_PARENT,
+        //        10)); // Height of the colored view
 
         // Add views to the layout
-        layout.addView(day);
-        layout.addView(img);
-        layout.addView(coloredView);
+        //layout.addView(day);
+        //layout.addView(img);
+        //layout.addView(coloredView);
 
         // Return the main layout
-        return layout;
+        //return layout;
+        return view;
     }
 }
