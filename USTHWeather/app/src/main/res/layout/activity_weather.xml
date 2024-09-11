@@ -4,18 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/fragment_weather"
-        android:name="vn.edu.usth.weather.WeatherFragment"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1" />
-
-    <fragment
-        android:id="@+id/fragment_forecast"
-        android:name="vn.edu.usth.weather.ForecastFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2" />
-
+        android:layout_height="match_parent" />
 </LinearLayout>

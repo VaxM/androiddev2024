@@ -1,12 +1,9 @@
 package vn.edu.usth.weather;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.FragmentPagerAdapter; // Add this import
 import android.util.Log;
 
 public class WeatherActivity extends AppCompatActivity {
@@ -15,11 +12,10 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        ForecastFragment firstFragment = new ForecastFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_forecast, firstFragment).commit();
-        WeatherFragment secondFragment = new WeatherFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_weather, secondFragment).commit();
-        Log.i("create", "onCreate called");
+
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        WeatherAndForecastPagerAdapter adapter = new WeatherAndForecastPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        viewPager.setAdapter(adapter);
     }
 
     @Override
