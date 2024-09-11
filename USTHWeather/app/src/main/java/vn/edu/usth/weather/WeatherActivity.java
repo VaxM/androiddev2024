@@ -3,7 +3,8 @@ package vn.edu.usth.weather;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import androidx.fragment.app.FragmentPagerAdapter; // Add this import
+import androidx.fragment.app.FragmentPagerAdapter;
+import com.google.android.material.tabs.TabLayout;
 import android.util.Log;
 
 public class WeatherActivity extends AppCompatActivity {
@@ -16,6 +17,14 @@ public class WeatherActivity extends AppCompatActivity {
         ViewPager viewPager = findViewById(R.id.viewPager);
         WeatherAndForecastPagerAdapter adapter = new WeatherAndForecastPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
+
+        // Optionally, set tab titles
+        tabLayout.getTabAt(0).setText("Viet Nam");
+        tabLayout.getTabAt(1).setText("France");
+        tabLayout.getTabAt(2).setText("India");
     }
 
     @Override
