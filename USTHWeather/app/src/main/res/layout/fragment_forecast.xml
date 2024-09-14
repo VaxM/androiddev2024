@@ -35,7 +35,7 @@
 
                 <ImageView
                     android:id="@+id/weatherImage1"
-                    android:layout_width="37dp"
+                    android:layout_width="@dimen/image_width"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:scaleType="fitStart"
