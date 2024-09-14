@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_horizontal_container">10dp</dimen>
+    <dimen name="padding_vertical_container">12dp</dimen>
+    <dimen name="day_box_height">52dp</dimen>
+    <dimen name="text_width">0dp</dimen>
+    <dimen name="text_padding_vertical">15dp</dimen>
+    <dimen name="image_width">37dp</dimen>
+    <dimen name="weather_container_height">357dp</dimen>
+    <dimen name="weather_container_margin">16dp</dimen>
+    <dimen name="weather_container_padding">16dp</dimen>
+    <dimen name="temperature_text_size">24sp</dimen>
+    <dimen name="weather_condition_text_size">18sp</dimen>
+    <dimen name="image_size">120dp</dimen>
+    <dimen name="text_margin_top">40dp</dimen>
+</resources>
