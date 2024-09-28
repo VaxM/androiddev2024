@@ -80,16 +80,6 @@ public class WeatherActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_WRITE_STORAGE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                extractAndPlayMusic();
-            }
-        }
-    }
-
     private void extractAndPlayMusic() {
         File sdcard = Environment.getExternalStorageDirectory();
         File file = new File(sdcard, "animalcrossing.mp3");
