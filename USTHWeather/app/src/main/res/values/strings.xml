@@ -21,6 +21,7 @@
     <string name='temperature_6'>22°-28°</string>
     <string name='temperature_7'>21°-27°</string>
     <string name='temperature_8'>25°</string>
-
+    <string name="tab_layout_description">Tab layout for navigating between different weather forecasts</string>
+    <string name="view_pager_description">View pager for displaying weather forecast details</string>
 
 </resources>
