@@ -70,7 +70,8 @@ public class WeatherActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
-            Toast.makeText(this, "Refresh clicked", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Refresh clicked", Toast.LENGTH_SHORT).show();
+            netRq();
             return true;
         } else if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PrefActivity.class);
@@ -78,6 +79,25 @@ public class WeatherActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void netRq() {
+        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                    runOnUiThread((new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(WeatherActivity.this, "Refreshed", Toast.LENGTH_SHORT).show();
+                        }
+                    }));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     private void extractAndPlayMusic() {
