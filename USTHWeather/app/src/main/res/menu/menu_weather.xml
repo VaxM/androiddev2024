@@ -1,11 +1,15 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/menu_weather">
     <item
         android:id="@+id/action_refresh"
         android:icon="@android:drawable/ic_menu_rotate"
         android:title="Refresh"
-        android:showAsAction="always" />
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/action_settings"
         android:title="Settings"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
 </menu>
