@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import android.os.AsyncTask;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -70,8 +71,8 @@ public class WeatherActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
-            //Toast.makeText(this, "Refresh clicked", Toast.LENGTH_SHORT).show();
-            netRq();
+            Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
+            new netRqSim().execute();
             return true;
         } else if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PrefActivity.class);
@@ -80,25 +81,23 @@ public class WeatherActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    private void netRq() {
-        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                    runOnUiThread((new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(WeatherActivity.this, "Refreshed", Toast.LENGTH_SHORT).show();
-                        }
-                    }));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+    private class netRqSim extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                Thread.sleep(2000);
+                return "Refreshed!";
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return "Refresh Failed";
             }
-        }).start();
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(WeatherActivity.this, result, Toast.LENGTH_SHORT).show();
+        }
     }
+
 
     private void extractAndPlayMusic() {
         File sdcard = Environment.getExternalStorageDirectory();
