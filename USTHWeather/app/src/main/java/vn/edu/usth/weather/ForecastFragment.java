@@ -1,8 +1,13 @@
 package vn.edu.usth.weather;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,13 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.graphics.Color;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ForecastFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ForecastFragment extends Fragment {
-
+    private ImageView logo;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,40 +71,35 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_forecast,container, false);
-
-        // Create the main LinearLayout
-        //LinearLayout layout = new LinearLayout(getContext());
-        //layout.setOrientation(LinearLayout.VERTICAL);
-
-        // Create and configure the TextView
-        //TextView day = new TextView(getContext());
-        //day.setText("Thursday");
-        //day.setTextSize(24); // Optional: Set text size
-        //day.setLayoutParams(new LinearLayout.LayoutParams(
-        //        LinearLayout.LayoutParams.WRAP_CONTENT,
-        //         LinearLayout.LayoutParams.WRAP_CONTENT));
-
-        // Create and configure the ImageView
-        //ImageView img = new ImageView(getContext());
-        //img.setImageResource(R.drawable.sun);
-        //img.setLayoutParams(new LinearLayout.LayoutParams(
-        //        LinearLayout.LayoutParams.WRAP_CONTENT,
-        //        LinearLayout.LayoutParams.WRAP_CONTENT));
-
-        // Create a colored view (if needed)
-        //View coloredView = new View(getContext());
-        //coloredView.setBackgroundColor(Color.parseColor("#20FF0000"));
-        //coloredView.setLayoutParams(new LinearLayout.LayoutParams(
-        //        LinearLayout.LayoutParams.MATCH_PARENT,
-        //        10)); // Height of the colored view
-
-        // Add views to the layout
-        //layout.addView(day);
-        //layout.addView(img);
-        //layout.addView(coloredView);
-
-        // Return the main layout
-        //return layout;
+        logo = view.findViewById(R.id.logo);
+        new LogoUSTH().execute("https://usth.edu.vn/wp-content/uploads/2021/11/logo.png");
         return view;
+    }
+    private class LogoUSTH extends AsyncTask<String, Void, Bitmap> {
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            Bitmap bitmap = null;
+            try {
+                URL url = new URL(urls[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.setDoInput(true);
+                connection.connect();
+                int response = connection.getResponseCode();
+                Log.i("USTHWeather", "The response is: " + response);
+                InputStream is = connection.getInputStream();
+                bitmap = BitmapFactory.decodeStream(is);
+                connection.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                logo.setImageBitmap(result);
+            }
+        }
     }
 }

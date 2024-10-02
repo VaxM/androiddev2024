@@ -340,6 +340,12 @@
 
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="196dp"
+                android:layout_height="125dp"
+                android:layout_gravity="left" />
+
 
         </LinearLayout>
 

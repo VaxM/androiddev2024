@@ -3,12 +3,16 @@ package vn.edu.usth.weather;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,7 +26,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import android.os.AsyncTask;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -126,9 +129,9 @@ public class WeatherActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+        @Override
     protected void onStart() {
-        super.onStart();
+        super .onStart();
         Log.i("start", "onStart called");
     }
 

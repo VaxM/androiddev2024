@@ -4,9 +4,14 @@
     android:background="@color/gray">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/weather_container_height"
-        android:layout_margin="@dimen/weather_container_margin"
+        android:layout_width="395dp"
+        android:layout_height="206dp"
+        android:layout_marginStart="@dimen/weather_container_margin"
+        android:layout_marginLeft="@dimen/weather_container_margin"
+        android:layout_marginTop="@dimen/weather_container_margin"
+        android:layout_marginEnd="@dimen/weather_container_margin"
+        android:layout_marginRight="@dimen/weather_container_margin"
+        android:layout_marginBottom="@dimen/weather_container_margin"
         android:background="@drawable/frame"
         android:padding="@dimen/weather_container_padding">
 
